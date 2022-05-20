@@ -3,27 +3,44 @@
 #include <omp.h>
 
 int main(int argc, char *argv[]) {
+    int a[] = {15, 2, 42, 12, 3, 123, 43, 23, 76, 1};
+    int b[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,0};
+    int n = 10;
+    int i;
+    int j;
 
-    int num_threads;
-    if (argc >= 2) {
-        num_threads = atoi(argv[1]);
-        omp_set_num_threads(num_threads);
-    }
+    // iterates from 0 to probably the array size of a
+    for (i = 0; i < n; i++) {
 
-    #pragma omp parallel
-    {
-        printf("thread %d is here \n", omp_get_thread_num());
-    }
+        // is increased if integer before current index are smaller than the current
+        int count = 0;
 
-    return 0;
-}
-
-void mv(int m, int n, double M[m][n], double V[n], double W[m]) {
-    int i, j;
-    for (i = 0; i < m; i++) {
-        W[i] = 0.0;
-        for (j = 0; j < n; j++) {
-            W[i] += M[i][j] * V[j];
+        // checks if all integers before the current array index are smaller or equal than the current
+        for (j = 0; j < i; j++) {
+            if (a[j] <= a[i]) {
+                count++;
+            }
         }
+
+        j++;
+
+        // checks all integers after the current index
+        for (; j < n; j++) {
+            if (a[j] < a[i]) count++;
+        }
+
+        // adds the current value to position count
+        b[count] = a[i];
     }
+
+    // assigns each value in array b to array a
+    for (i = 0; i < n; i++) {
+        a[i] = b[i];
+    }
+
+    // OUTCOME: Sorted Array
+    for (i = 0; i < n; i++) {
+        printf("Index %i: %i\n", i, a[i]);
+    }
+
 }
