@@ -10,8 +10,9 @@ int main(int argc, char *argv[]) {
     int j;
 
     // iterates from 0 to probably the array size of a
+    #pragma omp parallel for
     for (i = 0; i < n; i++) {
-
+        printf("thread %d is here \n", omp_get_thread_num());
         // is increased if integer before current index are smaller than the current
         int count = 0;
 
@@ -33,7 +34,7 @@ int main(int argc, char *argv[]) {
         b[count] = a[i];
     }
 
-    // assigns each value in array b to array a
+    #pragma omp parallel for
     for (i = 0; i < n; i++) {
         a[i] = b[i];
     }
