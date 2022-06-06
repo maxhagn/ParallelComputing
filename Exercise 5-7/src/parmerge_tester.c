@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
   long i;
   long n = 1, nset=0;
   long m = 1, mset=0;
-  int p = 1, pset=0;
+  int  p = 1, pset=0;
   int force_seq = 0;
   int nrep = 1;
 
