@@ -1,0 +1,1 @@
+/usr/bin/cc  -fopenmp -O3 -Wall    -rdynamic CMakeFiles/merge1_tester.dir/src/merge1.c.o CMakeFiles/merge1_tester.dir/src/seq_common.c.o CMakeFiles/merge1_tester.dir/src/parmerge_tester.c.o  -o bin/merge1_tester  -lm 
