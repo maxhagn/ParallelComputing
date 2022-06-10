@@ -24,17 +24,17 @@ void mv(base_t **A, int nrows, int ncols, int nrows_a_loc, int ncols_a_loc,
     assert(nrows%size==0);
     assert(ncols%size==0);
 
-    b = (double*)malloc(nrows*sizeof(double));
-    base_t *result = (double*)malloc(nrows*sizeof(double));
+    base_t *fullvector = (double*)malloc(nrows*sizeof(double));
 
-    MPI_Allgather(x,nrows/size,MPI_DOUBLE,b,nrows/size,MPI_DOUBLE,MPI_COMM_WORLD);
+    MPI_Allgather(x,ncols/size,MPI_DOUBLE,fullvector,ncols/size,MPI_DOUBLE,MPI_COMM_WORLD);
 
     for (int i=0; i<nrows/size; i++) {
-        result[i] = A[i][0]*b[0];
+        b[i] = A[i][0]*fullvector[0];
         for (int j=0; j<ncols/size; j++) {
-            result[i] += A[i][j]*b[j];
+            b[i] += A[i][j]*fullvector[j];
         }
     }
 
-    free(b);
+    free(fullvector);
+
 }
