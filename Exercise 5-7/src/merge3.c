@@ -6,7 +6,7 @@
 
 #include "merge.h"
 
-void rank(int i, double a[], long n, int *j, double b[], long m, int *k){
+/*void rank(int i, double a[], long n, int *j, double b[], long m, int *k){
     *j = MIN(i,n);
     *k = i - *j;
     int jlow = MAX(0,i - m);
@@ -21,10 +21,11 @@ void rank(int i, double a[], long n, int *j, double b[], long m, int *k){
         jlow = *j;
         *k -= d; *j += d;
     }
+
 }
-
+*/
 void merge(double A[], long n, double B[], long m, double C[]) {
-
+/*
     int i;
     if (n == 0) { // task parallelize for large n
         for (i = 0; i < m; i++) C[i] = B[i];
@@ -40,6 +41,6 @@ void merge(double A[], long n, double B[], long m, double C[]) {
         merge(&A[r + 1], n - r - 1, &B[s], m - s, &C[r + s + 1]);
     }
 
+*/
 }
-
 

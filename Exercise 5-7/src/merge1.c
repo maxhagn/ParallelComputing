@@ -11,10 +11,27 @@
 
 #include "merge.h"
 
+int rank ( double x , double X [] , int n ) {
+    int count = 0;
+    for(int i = 0; i < n; i++) {
+        if(X[i] < x) { count++; }
+    }
+
+    return count;
+}
+
+
 void merge(double a[], long n, double b[], long m, double c[]) {
 
-  // replace this by a parallel merge algorithm
-  seq_merge1(a, n, b, m, c);
+    #pragma omp parallel for
+    for (int i = 0; i < n; i++) {
+        c[i + rank(a[i],b,m)]=a[i];
+    }
+
+    #pragma omp parallel for
+    for (int i = 0; i < m; i++) {
+        c[i + rank(b[i],a,n)]=b[i];
+    }
 
 }
 
