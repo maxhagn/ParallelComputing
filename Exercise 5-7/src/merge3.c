@@ -6,14 +6,24 @@
 
 #include "merge.h"
 
-int rank ( double x , double X [] , int n ) {
-    int count = 0;
-    for(int i = 0; i < n; i++) {
-        if(X[i] < x) { count++; }
+int rank(double x, double X[], long n) {
+
+    int start = 0, end = n - 1, count = 0;
+
+    while (start <= end) {
+        int middle = (end + start) / 2;
+
+        if (X[middle] <= x) {
+            count = middle + 1;
+            start = middle + 1;
+        }
+        else
+            end = middle - 1;
     }
 
     return count;
 }
+
 
 void merge(double A[], long n, double B[], long m, double C[]) {
     int CUTOFF = 10;
