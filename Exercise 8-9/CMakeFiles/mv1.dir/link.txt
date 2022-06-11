@@ -1,0 +1,1 @@
+mpicc -O3 -Wall -std=c99 -D_POSIX_C_SOURCE=200809L  -rdynamic CMakeFiles/mv1.dir/src/mv1.c.o CMakeFiles/mv1.dir/src/mpimv_tester.c.o CMakeFiles/mv1.dir/src/mv1_instance.c.o CMakeFiles/mv1.dir/src/utils.c.o  -o bin/mv1 -lm 
