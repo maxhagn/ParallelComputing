@@ -21,7 +21,7 @@ do
   m=${MLIST[$i]}
   for p in "${PLIST[@]}"
   do
-    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "/times_merge1/output_${CASE}_${n}_${m}_${p}.out"
+    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "times_merge1/output_${CASE}_${n}_${m}_${p}.out"
   done
 done
 
@@ -33,7 +33,7 @@ do
   m=${MLIST[$i]}
   for p in "${PLIST[@]}"
   do
-    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "/times_merge2/output_${CASE}_${n}_${m}_${p}.out"
+    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "times_merge2/output_${CASE}_${n}_${m}_${p}.out"
   done
 done
 
@@ -45,7 +45,7 @@ do
   m=${MLIST[$i]}
   for p in "${PLIST[@]}"
   do
-    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "/times_merge3/output_${CASE}_${n}_${m}_${p}.out"
+    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "times_merge3/output_${CASE}_${n}_${m}_${p}.out"
   done
 done
 
