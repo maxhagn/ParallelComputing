@@ -6,16 +6,14 @@
 #SBATCH --cpu-freq=High
 #SBATCH --time=5:00
 
-NLIST=(1000000 10000000 100000000)
-MLIST=(2000000 20000000 200000000)
-PLIST=(2 4 8 11 16 32)
+NLIST=(100000000)
+MLIST=(200000000)
+PLIST=(16 32)
 NREP=10
-
-BINARY="../bin/merge1_tester"
 
 NL=${#NLIST[@]}
 
-BINARY="../bin/merge2_tester"
+BINARY="../bin/merge1_tester"
 
 for (( i=0; i<$NL; i++ ));
 do
@@ -23,7 +21,7 @@ do
   m=${MLIST[$i]}
   for p in "${PLIST[@]}"
   do
-    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "times_merge2/output_${CASE}_${n}_${m}_${p}.out"
+    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "times_merge1/output_${CASE}_${n}_${m}_${p}.out"
   done
 done
 
