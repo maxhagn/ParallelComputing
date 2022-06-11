@@ -15,7 +15,7 @@ void corank(int i, double a[], long n, int *j, double b[], long m, int *k) {
     int klow;
     if (*j > 0 && *k < m && a[*j - 1] > b[*k]) {
         d = (*j-jlow)/2 + ((*j-jlow)/2 != 0);
-        klow = k;
+        klow = *k;
         *j -= d;
         *k += d;
     } else if (*k > 0 && *j < n && b[*k - 1] >= a[*j]) {

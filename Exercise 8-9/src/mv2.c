@@ -31,8 +31,6 @@ void mv(base_t **A, int nrows, int ncols, int nrows_a_loc, int ncols_a_loc,
         }
     }
 
-
-
     MPI_Reduce_scatter_block(partial,b,nrows/size,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
 
     free(partial);
