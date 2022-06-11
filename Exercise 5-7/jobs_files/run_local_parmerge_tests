@@ -12,8 +12,8 @@ PLIST=(2 4 8 11 16 32)
 NREP=10
 
 #CASE="merge1"
-#CASE="merge2"
-CASE="merge3"
+CASE="merge2"
+#CASE="merge3"
 
 BINARY="./../bin/${CASE}_tester"
 

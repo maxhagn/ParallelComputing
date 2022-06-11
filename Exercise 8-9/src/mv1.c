@@ -21,8 +21,8 @@ void mv(base_t **A, int nrows, int ncols, int nrows_a_loc, int ncols_a_loc,
     MPI_Comm_size(MPI_COMM_WORLD,&size);
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
-    assert(nrows%size==0);
-    assert(ncols%size==0);
+    //assert(nrows%size==0);
+    //assert(ncols%size==0);
 
     base_t *fullvector = (double*)malloc(nrows*sizeof(double));
 
