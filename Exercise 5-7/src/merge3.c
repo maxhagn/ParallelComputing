@@ -26,23 +26,35 @@ int rank(double x, double X[], long n) {
 
 
 void merge(double A[], long n, double B[], long m, double C[]) {
-    int CUTOFF = 10;
+    int CUTOFF = 500;
     int i;
-    if (n == 0) { // task parallelize for large n
+    if (n == 0) {
+
+        #pragma omp parallel for
         for (i = 0; i < m; i++) {
             C[i] = B[i];
         }
-    } else if (m == 0) { // task parallelize for large m
-        for (i = 0; i < n; i++) {
 
-        } C[i] = A[i];
+    } else if (m == 0) {
+
+        #pragma omp parallel for
+        for (i = 0; i < n; i++) {
+            C[i] = A[i];
+        }
+
     } else if (n + m < CUTOFF) {
-        seq_merge1(A, n, B, m, C); // sequential merge for small problems
+
+        seq_merge1(A, n, B, m, C);
+
     } else {
         int r = n / 2;
         int s = rank(A[r], B, m);
         C[r + s] = A[r];
+
+        #pragma omp task
         merge(A, r, B, s, C);
+
+        #pragma omp task
         merge(&A[r + 1], n - r - 1, &B[s], m - s, &C[r + s + 1]);
     }
 
