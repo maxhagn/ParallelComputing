@@ -1,10 +1,3 @@
-/*
- * parmerge.c
- *
- *  Created on: Mar 12, 2019
- *      Author: sascha
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
@@ -13,7 +6,9 @@
 
 int rank(double x, double X[], long n) {
 
-    int start = 0, end = n - 1, count = 0;
+    int start = 0;
+    int end = n - 1;
+    int count = 0;
 
     while (start <= end) {
         int middle = (end + start) / 2;
@@ -21,9 +16,9 @@ int rank(double x, double X[], long n) {
         if (X[middle] <= x) {
             count = middle + 1;
             start = middle + 1;
-        }
-        else
+        } else {
             end = middle - 1;
+        }
     }
 
     return count;
