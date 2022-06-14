@@ -17,30 +17,10 @@ stdlib.h
 -
 omp.h
 -
-merge.h
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/src/merge.h
-
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/src/parmerge_tester.c
-ctype.h
--
-stdio.h
--
-stdlib.h
--
-unistd.h
--
-libgen.h
--
-string.h
--
-omp.h
+math.h
 -
 merge.h
 /home/student/pc22s70/ParallelComputing/Exercise 5-7/src/merge.h
-
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/src/seq_common.c
-seq_common.h
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/src/seq_common.h
 
 /home/student/pc22s70/ParallelComputing/Exercise 5-7/src/seq_common.h
 
