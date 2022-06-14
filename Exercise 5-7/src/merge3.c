@@ -1,8 +1,7 @@
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
+#include <math.h>
 
 #include "merge.h"
 
@@ -29,7 +28,7 @@ int rank(double x, double X[], long n) {
 
 void merge(double A[], long n, double B[], long m, double C[]) {
 
-    int CUTOFF = 500;
+    int CUTOFF = (n+m)/log(n+m);
     int i;
 
     if (n == 0) {
