@@ -18,9 +18,9 @@ int rank(double x, double X[], long n) {
         if (X[middle] <= x) {
             count = middle + 1;
             start = middle + 1;
-        }
-        else
+        } else {
             end = middle - 1;
+        }
     }
 
     return count;

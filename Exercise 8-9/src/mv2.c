@@ -15,17 +15,23 @@ void mv(base_t **A, int nrows, int ncols, int nrows_a_loc, int ncols_a_loc,
 {
 
     int rank, size;
-
     MPI_Comm_size(MPI_COMM_WORLD,&size);
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
-    //assert(nrows%size==0);
-    //assert(ncols%size==0);
+    if (rank==0) {
+        int total_n = 0;
+        int[] local_n = new int[size];
+        int[] displs = new int[size];
+
+        MPI_Gather(1,MPI_INT, local)
+
+    }
+
+
 
     base_t *partial = (double*)malloc(nrows*sizeof(double));
 
     for (int i=0; i<nrows; i++) {
-        partial[i] = A[i][0]*x[0];
         for (int j=0; j<ncols/size; j++) {
             partial[i] += A[i][j]*x[j];
         }
