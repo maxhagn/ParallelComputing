@@ -28,7 +28,13 @@ int rank(double x, double X[], long n) {
 
 void merge(double A[], long n, double B[], long m, double C[]) {
 
-    int CUTOFF = (n+m)/log(n+m);
+    int CUTOFF = 0;
+    if(n > m) {
+        CUTOFF = (n)/pow(log(n),2);
+    } else {
+        CUTOFF = (m)/pow(log(m),2);
+    }
+
     int i;
 
     if (n == 0) {
