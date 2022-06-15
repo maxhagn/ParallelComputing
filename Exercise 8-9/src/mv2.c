@@ -19,7 +19,7 @@ void mv(base_t **A, int nrows, int ncols, int nrows_a_loc, int ncols_a_loc,
     int aColsCount[size];
     base_t partial[nrows];
 
-    MPI_Allgather(&ncols_a_loc, 1, MPI_INT, counts, 1, MPI_INT, MPI_COMM_WORLD);
+    MPI_Allgather(&ncols_a_loc, 1, MPI_INT, aColsCount, 1, MPI_INT, MPI_COMM_WORLD);
 
     for (int i = 0; i < nrows; i++)
     {
@@ -32,5 +32,5 @@ void mv(base_t **A, int nrows, int ncols, int nrows_a_loc, int ncols_a_loc,
         }
     }
 
-    MPI_Reduce_scatter(&partial[0], b, counts, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
+    MPI_Reduce_scatter(&partial[0], b, aColsCount, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
 }
