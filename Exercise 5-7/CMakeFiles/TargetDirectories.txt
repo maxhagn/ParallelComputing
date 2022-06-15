@@ -1,7 +1,0 @@
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/CMakeFiles/merge2_tester.dir
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/CMakeFiles/edit_cache.dir
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/CMakeFiles/merge1_tester.dir
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/CMakeFiles/rebuild_cache.dir
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/CMakeFiles/merge3_tester.dir
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/CMakeFiles/package.dir
-/home/student/pc22s70/ParallelComputing/Exercise 5-7/CMakeFiles/package_source.dir
