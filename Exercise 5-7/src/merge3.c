@@ -28,17 +28,11 @@ int rank(double x, double X[], long n) {
 
 void merge(double A[], long n, double B[], long m, double C[]) {
 
-    //int CUTOFF = (n+m)/log(n+m);
-    //int CUTOFF = omp_get_max_threads();
     int CUTOFF = (m+n)/(long)omp_get_max_threads();
-
-
     int i;
 
     if (n == 0) {
-	
-	#pragma omp parallel
-        #pragma omp single nowait
+
         #pragma omp taskloop
         for (i = 0; i < m; i++) {
             C[i] = B[i];
@@ -46,8 +40,6 @@ void merge(double A[], long n, double B[], long m, double C[]) {
 
     } else if (m == 0) {
 
-	#pragma omp parallel
-        #pragma omp single nowait
         #pragma omp taskloop
         for (i = 0; i < n; i++) {
             C[i] = A[i];
@@ -63,11 +55,13 @@ void merge(double A[], long n, double B[], long m, double C[]) {
         int s = rank(A[r], B, m);
         C[r + s] = A[r];
 
-        #pragma omp task
+        #pragma omp task shared (A ,B , C )
         merge(A, r, B, s, C);
 
-        #pragma omp task
+        #pragma omp task shared (A ,B , C )
         merge(&A[r + 1], n - r - 1, &B[s], m - s, &C[r + s + 1]);
+
+        #pragma omp taskwait
 
     }
 }

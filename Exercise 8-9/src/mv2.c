@@ -14,30 +14,27 @@ void mv(base_t **A, int nrows, int ncols, int nrows_a_loc, int ncols_a_loc,
         base_t *b, int ncols_b_loc)
 {
 
-    int rank, size;
-    MPI_Comm_size(MPI_COMM_WORLD,&size);
-    MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+    int size ;
+    MPI_Comm_size ( MPI_COMM_WORLD , & size );
+    base_t partialSum [ nrows ]; // partial sum array for all columns of this process
+    int counts [ size ]; // number of elements each process has
 
-    if (rank==0) {
-        int total_n = 0;
-        int[] local_n = new int[size];
-        int[] displs = new int[size];
-
-        MPI_Gather(1,MPI_INT, local)
-
+    // get number of columns each process has
+    MPI_Allgather (& ncols_a_loc ,1 , MPI_INT , counts ,1 , MPI_INT , MPI_COMM_WORLD );
+    for ( int i = 0; i < nrows ; i ++) // initialze array with 0
+    {
+        partialSum [ i ] = 0;
     }
 
-
-
-    base_t *partial = (double*)malloc(nrows*sizeof(double));
-
-    for (int i=0; i<nrows; i++) {
-        for (int j=0; j<ncols/size; j++) {
-            partial[i] += A[i][j]*x[j];
+    // calc partial sum for each column into one array
+    for ( int i = 0; i < ncols_a_loc ; i ++)
+    {
+        for ( int j = 0; j < nrows_a_loc ; j ++)
+        {
+            partialSum [ j ] += A [ j ][ i ] * x [ i ];
         }
     }
 
-    MPI_Reduce_scatter_block(partial,b,nrows/size,MPI_DOUBLE,MPI_SUM,MPI_COMM_WORLD);
-
-    free(partial);
+    // share and reduce result with other processes
+    MPI_Reduce_scatter (& partialSum [0] , b , counts , MPI_DOUBLE , MPI_SUM , MPI_COMM_WORLD );
 }

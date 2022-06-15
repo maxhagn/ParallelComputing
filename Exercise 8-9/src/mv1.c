@@ -19,22 +19,39 @@ void mv(base_t **A, int nrows, int ncols, int nrows_a_loc, int ncols_a_loc,
     int rank, size;
 
     MPI_Comm_size(MPI_COMM_WORLD,&size);
+
+    int counts [ size ];
+    int displs [ size ];
+    double compX [ ncols ];
+
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);
 
-    //assert(nrows%size==0);
-    //assert(ncols%size==0);
+    MPI_Allgather(& nrows_x_loc ,1 , MPI_INT , counts ,1 , MPI_INT , MPI_COMM_WORLD );
 
     base_t *fullvector = (double*)malloc(nrows*sizeof(double));
 
     MPI_Allgather(x,ncols/size,MPI_DOUBLE,fullvector,ncols/size,MPI_DOUBLE,MPI_COMM_WORLD);
 
-    for (int i=0; i<nrows/size; i++) {
-        b[i] = A[i][0]*fullvector[0];
-        for (int j=0; j<ncols/size; j++) {
-            b[i] += A[i][j]*fullvector[j];
+    for ( int i = 0; i < size ; i ++) // calc displacements for each process
+    {
+        if ( i == 0){
+            displs [ i ] = 0;
+        }
+        else {
+            displs [ i ] = displs [i -1] + counts [i -1];
         }
     }
+    // get complete x
+    MPI_Allgatherv (& x [0] , nrows_x_loc , MPI_DOUBLE , & compX , counts , displs ,
+                    MPI_DOUBLE , MPI_COMM_WORLD );
 
-    free(fullvector);
+    // Matrix - Vector multiplication (A ’* x =b ’)
+    for ( int i = 0; i < nrows_a_loc ; i ++) {
+        b [ i ] = 0;
+        for ( int j = 0; j < ncols_a_loc ; j ++)
+        {
+            b [ i ] += A [ i ][ j ]* compX [ j ]; // b_loc
+        }
+    }
 
 }
