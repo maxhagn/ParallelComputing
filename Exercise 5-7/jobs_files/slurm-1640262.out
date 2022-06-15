@@ -1,3 +1,0 @@
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** JOB 1640262 ON hydra28 CANCELLED AT 2022-06-14T14:55:42 DUE TO TIME LIMIT ***
-slurmstepd: error: *** STEP 1640262.3 ON hydra28 CANCELLED AT 2022-06-14T14:55:42 DUE TO TIME LIMIT ***
