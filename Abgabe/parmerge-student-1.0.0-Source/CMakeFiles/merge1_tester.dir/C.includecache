@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/merge.h
+seq_common.h
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/seq_common.h
+
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/merge1.c
+stdio.h
+-
+stdlib.h
+-
+omp.h
+-
+merge.h
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/merge.h
+
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/parmerge_tester.c
+ctype.h
+-
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+libgen.h
+-
+string.h
+-
+omp.h
+-
+merge.h
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/merge.h
+
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/seq_common.c
+seq_common.h
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/seq_common.h
+
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/src/seq_common.h
+
