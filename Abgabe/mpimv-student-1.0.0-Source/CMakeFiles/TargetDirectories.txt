@@ -1,6 +1,0 @@
-/home/student/pc22s70/ParallelComputing/Abgabe/mpimv-student-1.0.0-Source/CMakeFiles/rebuild_cache.dir
-/home/student/pc22s70/ParallelComputing/Abgabe/mpimv-student-1.0.0-Source/CMakeFiles/package_source.dir
-/home/student/pc22s70/ParallelComputing/Abgabe/mpimv-student-1.0.0-Source/CMakeFiles/package.dir
-/home/student/pc22s70/ParallelComputing/Abgabe/mpimv-student-1.0.0-Source/CMakeFiles/mv1.dir
-/home/student/pc22s70/ParallelComputing/Abgabe/mpimv-student-1.0.0-Source/CMakeFiles/edit_cache.dir
-/home/student/pc22s70/ParallelComputing/Abgabe/mpimv-student-1.0.0-Source/CMakeFiles/mv2.dir
