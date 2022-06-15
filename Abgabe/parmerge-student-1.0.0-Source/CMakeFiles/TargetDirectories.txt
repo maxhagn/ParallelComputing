@@ -1,0 +1,7 @@
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/CMakeFiles/merge2_tester.dir
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/CMakeFiles/edit_cache.dir
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/CMakeFiles/merge1_tester.dir
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/CMakeFiles/rebuild_cache.dir
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/CMakeFiles/merge3_tester.dir
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/CMakeFiles/package.dir
+/home/student/pc22s70/ParallelComputing/Abgabe/parmerge-student-1.0.0-Source/CMakeFiles/package_source.dir

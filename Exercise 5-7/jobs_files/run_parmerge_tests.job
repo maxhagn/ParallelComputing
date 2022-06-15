@@ -13,18 +13,6 @@ NREP=10
 
 NL=${#NLIST[@]}
 
-BINARY="../bin/merge1_tester"
-
-for (( i=0; i<$NL; i++ ));
-do
-  n=${NLIST[$i]}
-  m=${MLIST[$i]}
-  for p in "${PLIST[@]}"
-  do
-    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "times_merge1/output_${CASE}_${n}_${m}_${p}.out"
-  done
-done
-
 BINARY="../bin/merge2_tester"
 
 for (( i=0; i<$NL; i++ ));
@@ -34,18 +22,6 @@ do
   for p in "${PLIST[@]}"
   do
     srun ${BINARY} -n $n -m $m -p $p -r $NREP > "times_merge2/output_${CASE}_${n}_${m}_${p}.out"
-  done
-done
-
-BINARY="../bin/merge3_tester"
-
-for (( i=0; i<$NL; i++ ));
-do
-  n=${NLIST[$i]}
-  m=${MLIST[$i]}
-  for p in "${PLIST[@]}"
-  do
-    srun ${BINARY} -n $n -m $m -p $p -r $NREP > "times_merge3/output_${CASE}_${n}_${m}_${p}.out"
   done
 done
 
