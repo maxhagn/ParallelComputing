@@ -28,9 +28,9 @@ int rank(double x, double X[], long n) {
 }
 
 void merge(double A[], long n, double B[], long m, double C[]) {
-# pragma omp parallel
+    #pragma omp parallel
     {
-# pragma omp single nowait
+    #pragma omp single nowait
         {
             CUTOFF = (m + n) / (long) omp_get_max_threads();
             merge_divconq(A, n, B, m, C);
@@ -54,7 +54,7 @@ void merge_divconq(double A[], int n, double B[], int m, double C[]) {
         seq_merge1(A, n, B, m, C);
     } else {
         int r = n / 2;
-        int s = getRank(A[r], B, m);
+        int s = rank(A[r], B, m);
         C[r + s] = A[r];
 
         #pragma omp task shared (A, B, C )
